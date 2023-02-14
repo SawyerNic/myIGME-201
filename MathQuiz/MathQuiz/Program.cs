@@ -167,50 +167,55 @@ class Program
                 nAnswer = val1 * val2;
                 sQuestions = $"Question #{nCntr + 1}: {val1} * {val2} => ";
             }
+            timeOutTimer.Start();
+            
 
-            // display the question and prompt for the answer
-            do
-            {
-                timeOutTimer.Start();
-                Console.Write(sQuestions);
-                sResponse = Console.ReadLine();
-                
-
-                try
+                // display the question and prompt for the answer
+                do
                 {
-                    nResponse = int.Parse(sResponse);
-                    bValid = true;
-                }
-                catch
+
+                    Console.Write(sQuestions);
+                    sResponse = Console.ReadLine();
+
+
+                    try
+                    {
+                        nResponse = int.Parse(sResponse);
+                        bValid = true;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Please enter an integer.");
+                        bValid = false;
+                    }
+
+                } while (!bValid);
+                timeOutTimer.Stop();
+
+
+                // if response == answer, output flashy reward and increment # correct
+                // else output stark answer
+                if (nResponse == nAnswer)
                 {
-                    Console.WriteLine("Please enter an integer.");
-                    bValid = false;
+                    Console.BackgroundColor = ConsoleColor.Blue;
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                    Console.WriteLine("Well done, {0}!!!", myName);
+
+                    ++nCorrect;
+                }
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Black;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("I'm sorry {0}. The answer is {1}", myName, nAnswer);
                 }
 
-            } while (!bValid);
-            timeOutTimer.Stop();
-
-            // if response == answer, output flashy reward and increment # correct
-            // else output stark answer
-            if (nResponse == nAnswer)
-            {
-                Console.BackgroundColor = ConsoleColor.Blue;
-                Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("Well done, {0}!!!", myName);
-
-                ++nCorrect;
-            }
-            else
-            {
                 Console.BackgroundColor = ConsoleColor.Black;
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("I'm sorry {0}. The answer is {1}", myName, nAnswer);
-            }
+                Console.ForegroundColor = ConsoleColor.White;
 
-            Console.BackgroundColor = ConsoleColor.Black;
-            Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine();
+            
 
-            Console.WriteLine();
         }
 
         Console.WriteLine();
@@ -243,7 +248,7 @@ class Program
             Console.WriteLine("Your time is up!");
             bTimeOut = true;
             timeOutTimer.Stop();
-            bValid = false;
+            
         }
     }
 }
