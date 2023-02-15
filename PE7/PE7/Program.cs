@@ -28,6 +28,10 @@ namespace MadLibs
             double[] precipitation = new double[4] { .45, 2.78, .04, 1.22 };
 
 
+<<<<<<< Updated upstream
+=======
+           
+>>>>>>> Stashed changes
 
         }
 
