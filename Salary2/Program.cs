@@ -9,7 +9,7 @@ namespace Salary2
     struct Employee
     {
         public string sName;
-        public double dSalary = 30000;
+        public double dSalary;
     }
 
 
@@ -18,9 +18,12 @@ namespace Salary2
         
         static void Main(string[] args)
         {
+
             Employee employee = new Employee();
-        //prompt user for name
-        Console.WriteLine("What's your name?");
+            employee.dSalary = 30000;
+            
+            //prompt user for name
+            Console.WriteLine("What's your name?");
             employee.sName = Console.ReadLine();
 
             //use the method to compare
