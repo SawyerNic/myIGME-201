@@ -8,15 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="CourseLib2" />
-    <None Remove="PeopleLib" />
+    <None Remove="Pets" />
+    <None Remove="PetApp" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CourseLib2">
-      <HintPath>..\..\CourseLib2\CourseLib2\bin\Debug\net7.0\CourseLib2.dll</HintPath>
+    <Reference Include="Pets">
+      <HintPath>..\..\Pets\Pets\bin\Debug\net7.0\Pets.dll</HintPath>
     </Reference>
-    <Reference Include="PeopleLib">
-      <HintPath>..\..\PeopleLib\PeopleLib\bin\Debug\net7.0\PeopleLib.dll</HintPath>
+    <Reference Include="PetApp">
+      <HintPath>..\..\PetApp\PetApp\bin\Debug\net7.0\PetApp.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
