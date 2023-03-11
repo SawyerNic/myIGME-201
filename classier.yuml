@@ -1,0 +1,12 @@
+// {type:class}
+// {generate:true}
+// {direction:topDown}
+
+[+iCustomer|Greet()]
+[+Customer|+name:string;-creditCardNumber:int;+CreditCardNumber:string|Greet()]
+[+iCustomer]^[+Customer]
+
+[+A:HotDrink|+instant:bool;+milk:bool;-sugar:byte;+brand:string;+size:string|+customer:Customer;+HotDrink();+HotDrink(brand:string);+AddSugar(amount:byte):a;+Steam():a]
+[+CupOfCoffee|+beanType:string|+CupOfCoffee();+CupOfCoffee(brand:string);+Steam():o]
+[+A:HotDrink]^[+CupOfCoffee]
+
