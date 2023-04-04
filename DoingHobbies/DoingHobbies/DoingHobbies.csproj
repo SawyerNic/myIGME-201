@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Hobbies" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Hobbies">
+      <HintPath>..\..\Hobbies\Hobbies\bin\Debug\net7.0\Hobbies.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
