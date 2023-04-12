@@ -101,7 +101,13 @@ namespace EditPerson
              * 1. Increase the size of the form by changing:
                     MaximumSize: 842,478
                     Size: 842,478
+            */
 
+            this.MaximumSize = new System.Drawing.Size(842, 478);
+            this.Size = new System.Drawing.Size(842,478);
+
+
+            /*
                2. Place 7 radio buttons on the form to the right of the Combo Box, Name and Email fields.
                     They should be defined as:
                             (Name): himRadioButton  herRadioButton  themRadioButton
@@ -109,7 +115,57 @@ namespace EditPerson
 
                             (Name): froshRadioButton  sophRadioButton  juniorRadioButton    seniorRadioButton
                             Text:   Freshman          Sophomore        Junior               Senior
+            */
 
+            // Create the first radio button
+            Label genderLabel = new Label();
+            this.Controls.Add(genderLabel);
+            genderLabel.BackColor = Color.Transparent;
+            genderLabel.Font = new Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            genderLabel.ForeColor = SystemColors.ActiveCaptionText;
+            genderLabel.Location = new Point(460, 50);
+            genderLabel.Name = "emailLabel";
+            genderLabel.Size = new Size(70, 13);
+            genderLabel.TabIndex = 8;
+            genderLabel.Text = "Gender";
+
+            GroupBox genderGroupBox = new GroupBox();
+            genderGroupBox.Text = "Gender";
+            genderGroupBox.Location = new Point(450, 50);
+            genderGroupBox.Size = new Size(120, 100);
+            genderGroupBox.TabIndex = 7;
+            
+
+            RadioButton himRadioButton = new RadioButton();
+            himRadioButton.Text = "Him";
+            himRadioButton.Location = new Point(450, 65);
+
+            // Create the second radio button
+            RadioButton herRadioButton = new RadioButton();
+            herRadioButton.Text = "Her";
+            herRadioButton.Location = new Point(450, 85);
+
+            // Create the third radio button
+            RadioButton themRadioButton = new RadioButton();
+            themRadioButton.Text = "Them";
+            themRadioButton.Location = new Point(450, 105);
+
+            // Group the radio buttons together
+            himRadioButton.Name = "Gender";
+            herRadioButton.Name = "Gender";
+            themRadioButton.Name = "Gender";
+
+            himRadioButton.CheckedChanged += new EventHandler(this.TypeComboBox__SelectedIndexChanged);
+            herRadioButton.CheckedChanged += new EventHandler(this.TypeComboBox__SelectedIndexChanged);
+            themRadioButton.CheckedChanged += new EventHandler(this.TypeComboBox__SelectedIndexChanged);
+
+            // Add the radio buttons to the form
+            this.Controls.Add(himRadioButton);
+            this.Controls.Add(herRadioButton);
+            this.Controls.Add(themRadioButton);
+            this.Controls.Add(genderGroupBox);
+
+            /*
                3. Run the application, and notice how you can only select 1 Radio Button at a time.
                     We want to be able to select 1 Gender Radio Button, and 1 Class Year Radio Button.
 
@@ -163,6 +219,65 @@ namespace EditPerson
             Important Fields in EventArgs
                 None.
             */
+
+            // Create the class group box
+            GroupBox classGroupBox = new GroupBox();
+            classGroupBox.Text = "Class";
+            classGroupBox.Location = new Point(450, 170);
+            classGroupBox.Size = new Size(120, 130);
+            classGroupBox.TabIndex = 9;
+
+            // Create the class year label
+            Label classYearLabel = new Label();
+            classYearLabel.BackColor = Color.Transparent;
+            classYearLabel.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
+            classYearLabel.ForeColor = SystemColors.ActiveCaptionText;
+            classYearLabel.Location = new Point(460, 290);
+            classYearLabel.Name = "classYearLabel";
+            classYearLabel.Size = new Size(70, 13);
+            classYearLabel.TabIndex = 10;
+            classYearLabel.Text = "Class of 2026";
+
+            // Create the first radio button
+            RadioButton freshmanRadioButton = new RadioButton();
+            freshmanRadioButton.Text = "Freshman";
+            freshmanRadioButton.Location = new Point(450, 185);
+            freshmanRadioButton.CheckedChanged += (sender, e) => { if (freshmanRadioButton.Checked) classYearLabel.Text = "Class of 2026"; };
+
+            // Create the second radio button
+            RadioButton sophomoreRadioButton = new RadioButton();
+            sophomoreRadioButton.Text = "Sophomore";
+            sophomoreRadioButton.Location = new Point(450, 205);
+            sophomoreRadioButton.CheckedChanged += (sender, e) => { if (sophomoreRadioButton.Checked) classYearLabel.Text = "Class of 2025"; };
+
+            // Create the third radio button
+            RadioButton juniorRadioButton = new RadioButton();
+            juniorRadioButton.Text = "Junior";
+            juniorRadioButton.Location = new Point(450, 225);
+            juniorRadioButton.CheckedChanged += (sender, e) => { if (juniorRadioButton.Checked) classYearLabel.Text = "Class of 2024"; };
+
+            // Create the fourth radio button
+            RadioButton seniorRadioButton = new RadioButton();
+            seniorRadioButton.Text = "Senior";
+            seniorRadioButton.Location = new Point(450, 245);
+            seniorRadioButton.CheckedChanged += (sender, e) => { if (seniorRadioButton.Checked) classYearLabel.Text = "Class of 2023"; };
+
+            // Group the radio buttons together
+            freshmanRadioButton.Name = "Class";
+            sophomoreRadioButton.Name = "Class";
+            juniorRadioButton.Name = "Class";
+            seniorRadioButton.Name = "Class";
+
+            // Add the radio buttons to the form
+            this.Controls.Add(freshmanRadioButton);
+            this.Controls.Add(sophomoreRadioButton);
+            this.Controls.Add(juniorRadioButton);
+            this.Controls.Add(seniorRadioButton);
+            this.Controls.Add(classGroupBox);
+
+            
+            this.Controls.Add(classYearLabel);
+
 
             this.okButton.Click += new EventHandler(this.OkButton__Click);
             this.cancelButton.Click += new EventHandler(this.CancelButton__Click);
