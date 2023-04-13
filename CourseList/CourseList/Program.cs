@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PeopleAppGlobals;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,11 +15,13 @@ namespace CourseList
         [STAThread]
         static void Main()
         {
+            Globals.AddCoursesSampleData();
+            Globals.AddPeopleSampleData();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CourseListForm());
-
-
+            CourseListForm editCourseListForm = new CourseListForm();
+            Application.Run(editCourseListForm);
         }
     }
 }
