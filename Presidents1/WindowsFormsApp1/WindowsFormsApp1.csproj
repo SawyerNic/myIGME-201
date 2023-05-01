@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B2AC6FA1-4550-4D92-B3EE-3819422CCF9E}</ProjectGuid>
+    <ProjectGuid>{2A14BCEF-8DF5-4015-985C-2495955D3D8E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Presidents1</RootNamespace>
-    <AssemblyName>Presidents1</AssemblyName>
+    <RootNamespace>WindowsFormsApp1</RootNamespace>
+    <AssemblyName>WindowsFormsApp1</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -65,7 +65,9 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Properties\DataSources\WindowsFormsApp1.Properties.Resources.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -78,6 +80,57 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BarackObama.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BenjaminHarrison.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DwightDEisenhower.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FranklinDRoosevelt.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FranklinPierce.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GeorgeWashington.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GeorgeWBush.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JamesBuchanan.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JohnAdams.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\JohnFKennedy.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MartinVanBuren.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RonaldReagan.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TheodoreRoosevelt.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ThomasJefferson.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WilliamJClinton.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WilliamMcKinley.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Presidents1.Properties
+namespace WindowsFormsApp1.Properties
 {
 
 
