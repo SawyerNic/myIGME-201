@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
@@ -72,30 +73,32 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(353, 12);
+            this.groupBox2.Controls.Add(this.webBrowser1);
+            this.groupBox2.Location = new System.Drawing.Point(352, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(576, 517);
-            this.groupBox2.TabIndex = 7;
+            this.groupBox2.Size = new System.Drawing.Size(632, 560);
+            this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "groupBox2";
             // 
             // webBrowser1
             // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
-            this.webBrowser1.Location = new System.Drawing.Point(359, 26);
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(567, 492);
-            this.webBrowser1.TabIndex = 1;
-            this.webBrowser1.Url = new System.Uri("https://en.m.wikipedia.org/wiki/Benjamin_Harrison", System.UriKind.Absolute);
+            this.webBrowser1.Size = new System.Drawing.Size(626, 541);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.TabStop = false;
+            this.webBrowser1.WebBrowserShortcutsEnabled = false;
             // 
             // radioButton1
             // 
@@ -274,11 +277,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(854, 535);
+            this.button1.Location = new System.Drawing.Point(839, 578);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(78, 23);
             this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
+            this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
             // 
             // groupBox1
@@ -293,6 +296,7 @@
             this.groupBox1.Size = new System.Drawing.Size(146, 134);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Tag = "filter";
             this.groupBox1.Text = "Filter";
             // 
             // radioButton21
@@ -302,7 +306,7 @@
             this.radioButton21.Name = "radioButton21";
             this.radioButton21.Size = new System.Drawing.Size(70, 17);
             this.radioButton21.TabIndex = 0;
-            this.radioButton21.Tag = "filter";
+            this.radioButton21.Tag = "f";
             this.radioButton21.Text = "Federalist";
             this.radioButton21.UseVisualStyleBackColor = true;
             // 
@@ -313,9 +317,10 @@
             this.radioButton20.Name = "radioButton20";
             this.radioButton20.Size = new System.Drawing.Size(128, 17);
             this.radioButton20.TabIndex = 0;
-            this.radioButton20.Tag = "filter";
+            this.radioButton20.Tag = "dr";
             this.radioButton20.Text = "Democrat-Republican";
             this.radioButton20.UseVisualStyleBackColor = true;
+            this.radioButton20.CheckedChanged += new System.EventHandler(this.radioButton20_CheckedChanged);
             // 
             // radioButton19
             // 
@@ -324,18 +329,19 @@
             this.radioButton19.Name = "radioButton19";
             this.radioButton19.Size = new System.Drawing.Size(79, 17);
             this.radioButton19.TabIndex = 0;
-            this.radioButton19.Tag = "filter";
+            this.radioButton19.Tag = "r";
             this.radioButton19.Text = "Republican";
             this.radioButton19.UseVisualStyleBackColor = true;
             // 
             // radioButton18
             // 
             this.radioButton18.AutoSize = true;
+            this.radioButton18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton18.Location = new System.Drawing.Point(6, 42);
             this.radioButton18.Name = "radioButton18";
             this.radioButton18.Size = new System.Drawing.Size(71, 17);
             this.radioButton18.TabIndex = 0;
-            this.radioButton18.Tag = "filter";
+            this.radioButton18.Tag = "d";
             this.radioButton18.Text = "Democrat";
             this.radioButton18.UseVisualStyleBackColor = true;
             // 
@@ -514,7 +520,6 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.radioButton16);
             this.Controls.Add(this.radioButton15);
             this.Controls.Add(this.radioButton8);
@@ -535,6 +540,7 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Form1";
+            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -546,7 +552,6 @@
         #endregion
 
         private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
@@ -589,6 +594,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 
