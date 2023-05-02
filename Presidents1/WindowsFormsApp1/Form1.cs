@@ -143,7 +143,7 @@ namespace WindowsFormsApp1
         {
             TextBox textBox = (TextBox)sender;
             bool valid = true;
-            
+            e.Cancel = true;
         }
 
         public struct Presidents
