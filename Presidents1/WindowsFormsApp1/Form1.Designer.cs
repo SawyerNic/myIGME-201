@@ -73,9 +73,11 @@
             this.textBox16 = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -98,6 +100,7 @@
             this.webBrowser1.Size = new System.Drawing.Size(626, 541);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.TabStop = false;
+            this.webBrowser1.Url = new System.Uri("https://en.m.wikipedia.org/wiki/Benjamin Harrison", System.UriKind.Absolute);
             this.webBrowser1.WebBrowserShortcutsEnabled = false;
             // 
             // radioButton1
@@ -336,7 +339,6 @@
             // radioButton18
             // 
             this.radioButton18.AutoSize = true;
-            this.radioButton18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.radioButton18.Location = new System.Drawing.Point(6, 42);
             this.radioButton18.Name = "radioButton18";
             this.radioButton18.Size = new System.Drawing.Size(71, 17);
@@ -348,13 +350,12 @@
             // radioButton17
             // 
             this.radioButton17.AutoSize = true;
-            this.radioButton17.Checked = true;
             this.radioButton17.Location = new System.Drawing.Point(6, 19);
             this.radioButton17.Name = "radioButton17";
             this.radioButton17.Size = new System.Drawing.Size(36, 17);
             this.radioButton17.TabIndex = 0;
             this.radioButton17.TabStop = true;
-            this.radioButton17.Tag = "filter";
+            this.radioButton17.Tag = "all";
             this.radioButton17.Text = "All";
             this.radioButton17.UseVisualStyleBackColor = true;
             // 
@@ -494,6 +495,10 @@
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -544,6 +549,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -595,6 +601,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

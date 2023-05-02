@@ -9,9 +9,12 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.Layout;
 using System.Windows.Forms.VisualStyles;
 using System.Xml.Linq;
 using WindowsFormsApp1.Properties;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using RadioButton = System.Windows.Forms.RadioButton;
 
 namespace WindowsFormsApp1
 {
@@ -36,6 +39,12 @@ namespace WindowsFormsApp1
             }
             foreach (Control control in this.Controls)
             {
+
+                if (control.GetType() == typeof(TextBox))
+                {
+                    TextBox textBox = (TextBox)control;
+                    textBox.Validating += new CancelEventHandler(this.TxtBox__Validator);
+                }
                 if (control.GetType() == typeof(PictureBox))
                 {
                     PictureBox pictureBox = control as PictureBox;
@@ -45,10 +54,14 @@ namespace WindowsFormsApp1
                 if (control.GetType() == typeof(RadioButton))
                 {
                     RadioButton radioButton = (control as RadioButton);
-                    Console.WriteLine(radioButton.ToString());
                     radioButton.CheckedChanged += new EventHandler(this.RadioButton__CheckedChanged);
+
                 }
-                if
+            }
+            foreach (Control filter in this.groupBox1.Controls)
+            {
+                RadioButton filterButton = (filter as RadioButton);
+                filterButton.CheckedChanged += new EventHandler(this.FilterRadioButton__CheckedChanged);
             }
         }
 
@@ -79,8 +92,57 @@ namespace WindowsFormsApp1
                     path += guy.name;
                     pictureBox1.Image = guy.portrait;
                     webBrowser1.Navigate(path);
-                }                
+                }
             }
+        }
+
+        private void FilterRadioButton__CheckedChanged(Object sender, EventArgs e)
+        {
+            string all = "all";
+            RadioButton filterButton = (sender as RadioButton);
+            if (filterButton.Checked)
+                {
+                foreach (Control control in this.Controls)
+                {
+                    if (control.GetType() == typeof(RadioButton))
+                    {
+                        control.Visible = true;
+                        control.Enabled = true;
+                        foreach (Presidents guy in presidents)
+                        {
+                            if (guy.party != filterButton.Tag && control.Text == guy.name && filterButton.Tag != all)
+                            {
+                                control.Visible = false;
+                                control.Enabled = false;
+                            }
+                        }
+                    }
+                    if ((string)filterButton.Tag == all)
+                    {
+                        control.Visible = true;
+                        control.Enabled = true;
+                    }
+                }
+            }
+        }
+
+        private void RadioButton__CheckedChanged1(object sender, EventArgs e)
+        {
+            RadioButton button = (RadioButton)sender;
+            foreach (Presidents guy in presidents)
+            {
+                if (guy.party != button.Tag)
+                {
+                    button.Enabled= false;
+                    button.Visible= false;
+                }
+            }
+        }
+
+        private void TxtBox__Validator(object sender, CancelEventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            bool valid = true;
             
         }
 
