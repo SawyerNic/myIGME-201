@@ -20,15 +20,11 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
-
-
-
         public Form1()
         {
             InitializeComponent();
             try
             {
-                
                 Microsoft.Win32.RegistryKey key =
                 Microsoft.Win32.Registry.LocalMachine.OpenSubKey(@"SOFTWARE\\WOW6432Node\\Microsoft\\Internet Explorer\\MAIN\\FeatureControl\\FEATURE_BROWSER_EMULATION", true);
                 key.SetValue(Application.ExecutablePath.Replace(Application.StartupPath + "\\", ""), 12001, Microsoft.Win32.RegistryValueKind.DWord);
@@ -43,7 +39,10 @@ namespace WindowsFormsApp1
                 if (control.GetType() == typeof(TextBox))
                 {
                     TextBox textBox = (TextBox)control;
+                    
+                    textBox.KeyPress += new KeyPressEventHandler(this.ObjectName__KeyPress);
                     textBox.Validating += new CancelEventHandler(this.TxtBox__Validator);
+                    
                 }
                 if (control.GetType() == typeof(PictureBox))
                 {
@@ -55,7 +54,6 @@ namespace WindowsFormsApp1
                 {
                     RadioButton radioButton = (control as RadioButton);
                     radioButton.CheckedChanged += new EventHandler(this.RadioButton__CheckedChanged);
-
                 }
             }
             foreach (Control filter in this.groupBox1.Controls)
@@ -63,6 +61,47 @@ namespace WindowsFormsApp1
                 RadioButton filterButton = (filter as RadioButton);
                 filterButton.CheckedChanged += new EventHandler(this.FilterRadioButton__CheckedChanged);
             }
+            this.toolStripProgressBar1.Maximum = 240;
+            this.toolStripProgressBar1.Value = 240;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new EventHandler(this.Timer__Tick);
+        }
+        private void Timer__Tick(object sender, EventArgs e)
+        {
+            --this.toolStripProgressBar1.Value;
+            if (this.toolStripProgressBar1.Value != 0)
+            {
+                return;
+            }
+            foreach (Control control in (ArrangedElementCollection)this.Controls)
+            {
+                if (control.GetType() == typeof(TextBox))
+                {
+                    control.Text = "0";
+                    
+                }
+            }
+
+            this.toolStripProgressBar1.Value = 240;
+        }
+        private void TextBox__MouseHover(object sender, EventArgs e) => this.toolTip1.Show("Which # President?", (IWin32Window)sender);
+        private void ObjectName__KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            timer1.Start();
+            if (char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back)
+            {
+                e.Handled = false;
+                return;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+
+            
+                
+            
         }
 
         private void PictureBox__MouseEnter(object sender, EventArgs e)
@@ -72,14 +111,12 @@ namespace WindowsFormsApp1
             pictureBox.Width *= 2;
             pictureBox.BringToFront();
         }
-
         private void PictureBox__MouseLeave(object sender, EventArgs e)
         {
             PictureBox pictureBox = sender as PictureBox;
             pictureBox.Height /= 2;
             pictureBox.Width /= 2;
         }
-
         private void RadioButton__CheckedChanged(object sender, EventArgs e)
         {
             RadioButton button = (RadioButton)sender;
@@ -91,17 +128,17 @@ namespace WindowsFormsApp1
                 {
                     path += guy.name;
                     pictureBox1.Image = guy.portrait;
+                    groupBox2.Text = path;
                     webBrowser1.Navigate(path);
                 }
             }
         }
-
         private void FilterRadioButton__CheckedChanged(Object sender, EventArgs e)
         {
             string all = "all";
             RadioButton filterButton = (sender as RadioButton);
             if (filterButton.Checked)
-                {
+            {
                 foreach (Control control in this.Controls)
                 {
                     if (control.GetType() == typeof(RadioButton))
@@ -125,7 +162,6 @@ namespace WindowsFormsApp1
                 }
             }
         }
-
         private void RadioButton__CheckedChanged1(object sender, EventArgs e)
         {
             RadioButton button = (RadioButton)sender;
@@ -133,19 +169,38 @@ namespace WindowsFormsApp1
             {
                 if (guy.party != button.Tag)
                 {
-                    button.Enabled= false;
-                    button.Visible= false;
+                    button.Enabled = false;
+                    button.Visible = false;
                 }
             }
         }
-
         private void TxtBox__Validator(object sender, CancelEventArgs e)
         {
-            TextBox textBox = (TextBox)sender;
-            bool valid = true;
-            e.Cancel = true;
-        }
 
+            e.Cancel = true;
+            TextBox textBox = (TextBox)sender;
+            
+
+            if (textBox.Text == string.Empty) 
+            {
+                textBox.Text = "0";
+                e.Cancel = false; 
+            }
+            else if (int.Parse(textBox.Text) == int.Parse(textBox.Tag.ToString()))
+            {
+                errorProvider1.SetError(textBox, null);
+                e.Cancel = false;
+            }
+            else if(textBox.Text.ToString() == "0") 
+            { 
+                e.Cancel = false;
+            }
+            else
+            {
+                errorProvider1.SetError(textBox, "That is the wrong number");
+            }
+        }
+        
         public struct Presidents
         {
             public string name;

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -74,34 +72,17 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox2.SuspendLayout();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.webBrowser1);
-            this.groupBox2.Location = new System.Drawing.Point(352, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(632, 560);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "groupBox2";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(626, 541);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.TabStop = false;
-            this.webBrowser1.Url = new System.Uri("https://en.m.wikipedia.org/wiki/Benjamin Harrison", System.UriKind.Absolute);
-            this.webBrowser1.WebBrowserShortcutsEnabled = false;
             // 
             // radioButton1
             // 
@@ -365,6 +346,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(29, 20);
             this.textBox1.TabIndex = 5;
+            this.textBox1.Tag = "23";
             this.textBox1.Text = "0";
             // 
             // textBox2
@@ -373,6 +355,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(29, 20);
             this.textBox2.TabIndex = 5;
+            this.textBox2.Tag = "32";
             this.textBox2.Text = "0";
             // 
             // textBox3
@@ -381,6 +364,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(29, 20);
             this.textBox3.TabIndex = 5;
+            this.textBox3.Tag = "42";
             this.textBox3.Text = "0";
             // 
             // textBox4
@@ -389,6 +373,7 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(29, 20);
             this.textBox4.TabIndex = 5;
+            this.textBox4.Tag = "15";
             this.textBox4.Text = "0";
             // 
             // textBox5
@@ -397,6 +382,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(29, 20);
             this.textBox5.TabIndex = 5;
+            this.textBox5.Tag = "14";
             this.textBox5.Text = "0";
             // 
             // textBox6
@@ -405,6 +391,7 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(29, 20);
             this.textBox6.TabIndex = 5;
+            this.textBox6.Tag = "43";
             this.textBox6.Text = "0";
             // 
             // textBox7
@@ -413,6 +400,7 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(29, 20);
             this.textBox7.TabIndex = 5;
+            this.textBox7.Tag = "44";
             this.textBox7.Text = "0";
             // 
             // textBox8
@@ -421,6 +409,7 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(29, 20);
             this.textBox8.TabIndex = 5;
+            this.textBox8.Tag = "35";
             this.textBox8.Text = "0";
             // 
             // textBox9
@@ -429,6 +418,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(29, 20);
             this.textBox9.TabIndex = 5;
+            this.textBox9.Tag = "25";
             this.textBox9.Text = "0";
             // 
             // textBox10
@@ -437,6 +427,7 @@
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(29, 20);
             this.textBox10.TabIndex = 5;
+            this.textBox10.Tag = "40";
             this.textBox10.Text = "0";
             // 
             // textBox11
@@ -445,6 +436,7 @@
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(29, 20);
             this.textBox11.TabIndex = 5;
+            this.textBox11.Tag = "34";
             this.textBox11.Text = "0";
             // 
             // textBox12
@@ -453,6 +445,7 @@
             this.textBox12.Name = "textBox12";
             this.textBox12.Size = new System.Drawing.Size(29, 20);
             this.textBox12.TabIndex = 5;
+            this.textBox12.Tag = "8";
             this.textBox12.Text = "0";
             // 
             // textBox13
@@ -461,6 +454,7 @@
             this.textBox13.Name = "textBox13";
             this.textBox13.Size = new System.Drawing.Size(29, 20);
             this.textBox13.TabIndex = 5;
+            this.textBox13.Tag = "1";
             this.textBox13.Text = "0";
             // 
             // textBox14
@@ -469,6 +463,7 @@
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(29, 20);
             this.textBox14.TabIndex = 5;
+            this.textBox14.Tag = "2";
             this.textBox14.Text = "0";
             // 
             // textBox15
@@ -477,6 +472,7 @@
             this.textBox15.Name = "textBox15";
             this.textBox15.Size = new System.Drawing.Size(29, 20);
             this.textBox15.TabIndex = 5;
+            this.textBox15.Tag = "26";
             this.textBox15.Text = "0";
             // 
             // textBox16
@@ -485,19 +481,58 @@
             this.textBox16.Name = "textBox16";
             this.textBox16.Size = new System.Drawing.Size(29, 20);
             this.textBox16.TabIndex = 5;
+            this.textBox16.Tag = "3";
             this.textBox16.Text = "0";
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 626);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripProgressBar1,
+            this.toolStripStatusLabel1});
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 627);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(938, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(938, 21);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
+            this.webBrowser1.Size = new System.Drawing.Size(626, 541);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.Url = new System.Uri("https://en.m.wikipedia.org/wiki/Benjamin Harrison", System.UriKind.Absolute);
+            this.webBrowser1.WebBrowserShortcutsEnabled = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.webBrowser1);
+            this.groupBox2.Location = new System.Drawing.Point(352, 11);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(632, 560);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "https://en.m.wikipedia.org/wiki/Benjamin Harrison";
+            // 
+            // toolStripProgressBar1
+            // 
+            this.toolStripProgressBar1.Maximum = 700;
+            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
+            this.toolStripProgressBar1.Size = new System.Drawing.Size(700, 15);
+            this.toolStripProgressBar1.Value = 700;
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 0);
             // 
             // Form1
             // 
@@ -545,11 +580,13 @@
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Form1";
-            this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,9 +636,12 @@
         private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
 
