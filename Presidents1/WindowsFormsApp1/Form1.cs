@@ -35,14 +35,11 @@ namespace WindowsFormsApp1
             }
             foreach (Control control in this.Controls)
             {
-
                 if (control.GetType() == typeof(TextBox))
                 {
                     TextBox textBox = (TextBox)control;
-                    
                     textBox.KeyPress += new KeyPressEventHandler(this.ObjectName__KeyPress);
                     textBox.Validating += new CancelEventHandler(this.TxtBox__Validator);
-                    
                 }
                 if (control.GetType() == typeof(PictureBox))
                 {
@@ -55,6 +52,11 @@ namespace WindowsFormsApp1
                     RadioButton radioButton = (control as RadioButton);
                     radioButton.CheckedChanged += new EventHandler(this.RadioButton__CheckedChanged);
                 }
+                if (control.GetType() == typeof(Button))
+                {
+                    Button button = (control as Button);
+                    button.Click += new EventHandler(this.Button__Clicked);
+                }
             }
             foreach (Control filter in this.groupBox1.Controls)
             {
@@ -65,6 +67,10 @@ namespace WindowsFormsApp1
             this.toolStripProgressBar1.Value = 240;
             this.timer1.Interval = 500;
             this.timer1.Tick += new EventHandler(this.Timer__Tick);
+        }
+        private void Button__Clicked(object sender, EventArgs e)
+        {
+
         }
         private void Timer__Tick(object sender, EventArgs e)
         {
@@ -98,12 +104,7 @@ namespace WindowsFormsApp1
             {
                 e.Handled = true;
             }
-
-            
-                
-            
         }
-
         private void PictureBox__MouseEnter(object sender, EventArgs e)
         {
             PictureBox pictureBox = sender as PictureBox;
@@ -176,11 +177,8 @@ namespace WindowsFormsApp1
         }
         private void TxtBox__Validator(object sender, CancelEventArgs e)
         {
-
             e.Cancel = true;
             TextBox textBox = (TextBox)sender;
-            
-
             if (textBox.Text == string.Empty) 
             {
                 textBox.Text = "0";
@@ -190,6 +188,7 @@ namespace WindowsFormsApp1
             {
                 errorProvider1.SetError(textBox, null);
                 e.Cancel = false;
+                count++;
             }
             else if(textBox.Text.ToString() == "0") 
             { 
@@ -199,7 +198,15 @@ namespace WindowsFormsApp1
             {
                 errorProvider1.SetError(textBox, "That is the wrong number");
             }
+            if (count == 16)
+            {
+                this.webBrowser1.Navigate("https://www.youtube.com/embed/18212B4yfLg?autoplay=1");
+                this.button1.Enabled = true;
+                this.timer1.Stop();
+            }
         }
+
+        public int count;
         
         public struct Presidents
         {
@@ -305,7 +312,7 @@ namespace WindowsFormsApp1
             }
 ,           new Presidents
             {
-               name = "Theodore Rosevelt",
+               name = "Theodore Roosevelt",
                portrait = Image.FromFile("C:\\Users\\Owner\\OneDrive\\Documents\\GitHub\\myIGME-201\\Presidents1\\WindowsFormsApp1\\Resources\\TheodoreRoosevelt.jpeg"),
                party = "r",
                num = 26
